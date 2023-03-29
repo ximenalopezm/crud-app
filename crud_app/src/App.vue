@@ -1,33 +1,31 @@
 <template>
-    <body>
-        <signIn />
-    </body>
+    <component :is="currentView" />
 </template>
 
 <script>
     import signIn from './components/signIn.vue';
     import pageViewer from './components/pageViewer.vue';
 
+    const routes = {
+    '/': signIn,
+    '/pageViewer': pageViewer
+    }
+
     export default {
-        components: {
-            signIn,
-            pageViewer
-        },
-        data() {
-            return {
-                inputs: [
-                    {
-                        link: {text: 'Sign In', url: 'index.html'},
-                        pageTitle: 'Sign In to Sisweb',
-                        content: 'This is the sign in content'
-                    },
-                    {
-                        link: {text: 'Shop', url: 'shop.html'},
-                        pageTitle: 'Shop in sisweb',
-                        content: 'This is the shop content'
-                    }
-                ]
-            }
+    data() {
+        return {
+        currentPath: window.location.hash
         }
+    },
+    computed: {
+        currentView() {
+        return routes[this.currentPath.slice(1) || '/'] || NotFound
+        }
+    },
+    mounted() {
+        window.addEventListener('hashchange', () => {
+            this.currentPath = window.location.hash
+            })
+    }
     }
 </script>

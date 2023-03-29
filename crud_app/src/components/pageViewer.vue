@@ -1,12 +1,15 @@
 <template>
     <div class="container">
-                <h1>{{page.title}}</h1>
-                <p>{{page.content}}</p>
-            </div>
+        <a href="#/">Sign in</a>
+        <h1 class="empasize">Page Title</h1>
+        <p>content</p>
+    </div>
 </template>
 
 <script>
     export default {
-        props: ['page'],
+        signIn() {
+            console.log(this.$route.params)
+        }
     }
 </script>

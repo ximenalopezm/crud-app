@@ -8,11 +8,11 @@
                 </div>
                 <div class="container-preguntas">
                     <label><p>Username</p>
-                    <input type="username" v-model="username" /></label>
+                    <input type="username" v-model="username" required /></label>
                     <label><p>Password</p>
-                    <input type="password" v-model="password" /></label>
+                    <input type="password" v-model="password" required/></label>
                 </div>
-                <button>SIGN IN</button>
+                <button @keyup.enter="pressEnter()"><a href="#/pageViewer">SIGN IN</a></button>
             </form>
         </div>
     </div>
@@ -31,6 +31,9 @@ export default {
     methods: {
         handleSubmit() {
             console.log(this.username, this.password)
+        },
+        pressEnter() {
+            this.handleSubmit()
         }
     }
 }
@@ -42,6 +45,17 @@ export default {
         height: 38px;
         border: solid #CED4DA 1px;
         border-radius: 4px;
+    }
+
+    input:hover {
+        border: solid #7749F8 1px;
+        box-shadow:0 4px 8px 0 rgba(0,0,0,0.24), 0 4px 8px 0 rgba(0,0,0,0.24);
+    }
+
+    input:focus {
+        outline: none;
+        border: solid #7749F8 2px;
+        box-shadow:0 4px 8px 0 rgba(0,0,0,0.24), 0 4px 8px 0 rgba(0,0,0,0.24);
     }
 
     .container {
@@ -97,9 +111,27 @@ export default {
         background: #7749F8;
         border-radius: 4px;
         border: none;
+        margin-top: 48px;
+        transition-duration: 0.4s;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+        background-color: #FFFFFF;
+        border: solid #7749F8 1px;
+        text-decoration-color: #7749F8;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+    a {
         font-weight: 600;
         font-size: 16px;
         color: #FFFFFF;
-        margin-top: 48px;
     }
+
+    button:hover a {
+        color: #7749F8;
+        text-decoration-line: none;
+    }
+
 </style>
