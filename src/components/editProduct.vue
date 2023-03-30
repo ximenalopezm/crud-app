@@ -6,7 +6,7 @@
 <template>
     <navBar />
     <div class="container mt-5">
-        <h1>New Product</h1>
+        <h1>Edit Product</h1>
         <hr class="mt-4 mb-4">
         <div class="row">
             <div class="col-sm-4">
@@ -26,7 +26,7 @@
                     <div class="row">
                         <div class="col-sm-6 mb-4">
                             <label for="id" class="form-label">ID</label>
-                            <input type="text" class="form-control" v-model="id" required>
+                            <input type="text" class="form-control" v-model="id" disabled>
                         </div>
                         <div class="col-sm-6 mb-4">
                             <label for="type" class="form-label">Tipo</label>
@@ -61,9 +61,9 @@
         </div>
 
         <hr class="mt-4">
-        <div class=" d-flex flex-row-reverse">
+        <div class=" d-flex flex-row-reverse mb-3">
             <button id="buttonCreate" type="submit" class="btn  btn-outline-light col-sm-1 me-5">
-                CREATE
+                UPDATE
             </button>
             <button type="submit" class="btn btn-secondary col-sm-1 me-5">
                 CANCEL
