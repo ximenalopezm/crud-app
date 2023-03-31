@@ -1,117 +1,116 @@
 <template>
-    <main>
-        <div class="container h-100">
-            <div class="row mt-5 align-items-center h-100">
-                <div class="row align-items-md-stretch d-flexn pt-5 justify-content-center">
-                    <div class="col-md-10 border rounded-4">
-                        <article>
-                            <div class="row d-flex justify-content-center">
-                                <div class="col-sm-12 d-flex justify-content-center">
-                                    <h1><b>WELCOME TO SISWEB</b></h1>
-                                </div>
-                                <div class="col-sm-12 d-flex justify-content-center">
-                                    <p>Please, sign in</p>
-                                </div>
-                            </div>
-                        </article>
-                        <form>
-                            <div class="row d-flex pt-5">
-                                <div class="col-sm-12 ">
-                                    <p>Username</p>
-                                </div>
-                                <div class="col">
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <div class="row d-flex pt-4">
-                                <div class="col-sm-12">
-                                    <p>Password</p>
-                                </div>
-                                <div class="col">
-                                    <input type="password">
-                                </div>
-                                <div class="col-sm-12 d-flex justify-content-center pt-5">
-                                    <button id="botonAcceso">
-                                        <RouterLink to="/newProduct"> LOG IN</RouterLink>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+    <div class="login">
+        <div class="container">
+            <form @submit.prevent="handleSubmit">
+                <div class="container-titulo">
+                    <h1>{{ title }}</h1>
+                    <h2>{{ subtitle }}</h2>
                 </div>
-            </div>
+                <div class="container-preguntas">
+                    <label>
+                        <p>Username</p>
+                        <input type="username" v-model="username" />
+                    </label>
+                    <label>
+                        <p>Password</p>
+                        <input type="password" v-model="password" />
+                    </label>
+                </div>
+                <button>
+
+                    <RouterLink id="routerButton" to="/newProduct"> SING IN</RouterLink>
+                </button>
+            </form>
         </div>
-    </main>
+    </div>
 </template>
 
+<script>
+export default {
+    data() {
+        return {
+            title: 'WELCOME TO SISWEB',
+            subtitle: 'Please, sign in',
+            username: '',
+            password: ''
+        }
+    },
+    methods: {
+        handleSubmit() {
+            console.log(this.username, this.password)
+        }
+    }
+}
+</script>
+
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
-
-#botonAcceso {
-    font-weight: 600;
-    font-size: 16px;
-    color: #FFFFFF;
-    width: 186px;
-    height: 39px;
-    background: #fff;
+input {
+    width: 315px;
+    height: 38px;
+    border: solid #CED4DA 1px;
     border-radius: 4px;
-
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.container {
     background-color: #FFFCFC;
-    font-family: 'Inter', sans-serif;
-    font-family: 'Source Sans Pro', sans-serif;
-
+    width: 792px;
+    height: 464px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-article {
-    font-style: normal;
+.login {
+    background-color: #7749F8;
+    min-height: 100vh;
+    text-align: center;
+    padding: 70px 0;
+}
+
+h1,
+h2 {
     font-weight: 700;
     font-size: 30px;
     line-height: 36px;
-    text-align: center;
     letter-spacing: -0.02em;
-    color: #000000;
-    font-family: 'Inter', sans-serif;
-    line-height: 36px;
-
 }
 
-article p {
+h2 {
     color: #B4B0B0;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: -10px;
 }
 
-form {
-    font-style: normal;
-    font-weight: 500;
+p {
+    text-align: left;
     font-size: 18px;
     line-height: 22px;
-    color: #343A40;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+label {
+    display: block;
+}
+.container-titulo {
+    padding-bottom: 41px;
 }
 
 button {
-    font-weight: 600;
-    font-size: 16px;
-    color: #FFFFFF;
     width: 186px;
     height: 39px;
     background: #7749F8;
     border-radius: 4px;
-    border: #7749F8 solid 1px;
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
+    color: #FFFFFF;
+    margin-top: 48px;
 }
 
-input {
-    box-sizing: border-box;
-    height: 39px;
-    width: 315px;
-    border: 1px solid #CED4DA;
-    border-radius: 4px;
-}
-</style>
+#routerButton {
+    color: #FFFFFF;
+    text-decoration: none;
+}</style>

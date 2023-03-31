@@ -7,29 +7,32 @@ import logIn from './components/logIn.vue'
 import navBar from './components/navBar.vue'
 import newProduct from './components/newProduct.vue'
 import products from './components/products.vue'
+import editProduct from './components/editProduct.vue'
 
 const app = createApp(App)
 
 const routes = [
     {
-        path:'/', component: logIn,
+        path: '/', component: logIn,
     },
     {
-        path:'/navBar', component: navBar,
+        path: '/navBar', component: navBar,
     },
     {
-        path:'/newProduct', component: newProduct,
+        path: '/newProduct', component: newProduct,
     },
     {
-        path:'/products', component: products,
+        path: '/products', component: products,
+    },
+    {
+        path: '/editProduct', component: editProduct,
     }
 ]
 
 const router = createRouter({
     history: createWebHashHistory(),
-    routes, 
-  }) 
+    routes,
+})
 
 app.use(router)
-
 app.mount('#app')
