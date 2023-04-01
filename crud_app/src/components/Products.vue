@@ -48,7 +48,7 @@
     <div>
         <p>{{title}}</p>
         <hr>
-        <button class="AddProduct" @click="addProduct()">ADD PRODUCT</button>
+        <router-link to="/newProduct" class="router" id="newProduct" ><button class="AddProduct" @click="addProduct()">ADD PRODUCT</button></router-link>
     </div>
 
     <div class="table">
@@ -69,7 +69,7 @@
             <td class="price">${{product.price}}</td>
             <td class="in_stock">{{ product.in_stock }}</td>
             <td><button class="image_btn"><box-icon name='image' animation="tada-hover"></box-icon></button></td>
-            <td><button class="edit"><box-icon name="pencil" animation="tada-hover"></box-icon></button></td>
+            <td><router-link to="/editProduct" class="router" id="editProduct"><button class="edit"><box-icon name="pencil" animation="tada-hover"></box-icon></button></router-link></td>
             <td><button class="delete" @click="showModal=true"><box-icon name="trash" animation="tada-hover"></box-icon></button></td>
         </tr>
     </div>
