@@ -1,3 +1,28 @@
+<script setup>
+    import {ref} from "vue"
+
+    const productid = ref('COS01')
+    const product = ref('Sephora Skin Care')
+    const units = ref('1')
+    const stock = ref('4')
+    const price = ref('$45.50')
+    const qty = ref('0')
+
+/*     export default {
+        data() {
+            return {
+                productid: 'COS01',
+                product: 'Sephora Skin Care',
+                units: '1',
+                stock: '4',
+                price: '$45.50',
+                qty: ''
+
+            }
+        }
+    } */
+</script>
+
 <template>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-cart.css' rel='stylesheet'>
     <div class="container" id="componente">
@@ -18,22 +43,6 @@
         </div>
     </div>
 </template>
-
-<script>
-export default {
-    data() {
-        return {
-            productid: 'COS01',
-            product: 'Sephora Skin Care',
-            units: '1',
-            stock: '4',
-            price: '$45.50',
-            qty: ''
-
-        }
-    }
-}
-</script>
 
 <style scoped>
 img {
