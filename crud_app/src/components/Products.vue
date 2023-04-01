@@ -116,6 +116,10 @@
         border-radius: 5px;
     }
 
+    hr{
+        margin-left: 140px;
+        width: 69%;
+    }
 
     .id, .type, .name{
         padding-right: 80px;
