@@ -28,7 +28,6 @@
     </nav>
 </template>
 
-
 <script scoped>
 export default {
     data() {

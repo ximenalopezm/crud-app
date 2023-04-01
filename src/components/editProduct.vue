@@ -22,7 +22,7 @@ import imgPh from './imgPh.vue';
 
         <hr class="mt-4">
         <div class=" d-flex flex-row-reverse mb-3">
-            <button id="buttonCreate" type="submit" class="btn  btn-outline-light col-sm-1 me-5">
+            <button id="buttonCreate" type="submit" class="btn  btn-outline-light col-sm-1 me-5" @click="alerta()">
                 UPDATE
             </button>
             <button type="submit" class="btn btn-secondary col-sm-1 me-5">
@@ -31,6 +31,30 @@ import imgPh from './imgPh.vue';
         </div>
     </div>
 </template>
+
+<script scoped>
+export default {
+    data() {
+        return {
+            previewSrc: null,
+            id: '',
+            type: '',
+            price: null,
+            stock: null
+        }
+    },
+    methods: {
+        alerta(event) {
+            Swal.fire({
+                title: "You want to add this product?",
+                showDenyButton: true,
+                confirmButtonText: 'Yes',
+                denyButtonText: `No`,
+            })
+        }
+    }
+}
+</script> 
 
 <style scoped>
 #buttonCreate {

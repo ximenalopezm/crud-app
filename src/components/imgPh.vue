@@ -37,7 +37,6 @@ export default {
                 }
                 img.src = e.target.result;
             }
-
             if (file) {
                 reader.readAsDataURL(file);
             } else {

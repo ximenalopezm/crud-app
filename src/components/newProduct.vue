@@ -22,7 +22,7 @@ import imgPh from './imgPh.vue';
 
         <hr class="mt-4">
         <div class=" d-flex flex-row-reverse">
-            <button id="buttonCreate" type="submit" class="btn  btn-outline-light col-sm-1 me-5">
+            <button id="buttonCreate" type="buttom" class="btn  btn-outline-light col-sm-1 me-5" @click="alerta()">
                 CREATE
             </button>
             <button type="submit" class="btn btn-secondary col-sm-1 me-5">
@@ -31,7 +31,7 @@ import imgPh from './imgPh.vue';
         </div>
     </div>
 </template>
-<!-- 
+
 <script scoped>
 export default {
     data() {
@@ -44,34 +44,18 @@ export default {
         }
     },
     methods: {
-        previewImage(event) {
-            var file = event.target.files[0];
-            var reader = new FileReader();
-
-            reader.onload = (e) => {
-                var img = new Image();
-                img.onload = () => {
-                    var canvas = document.createElement('canvas');
-                    var ctx = canvas.getContext('2d');
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    ctx.drawImage(img, 0, 0);
-                    var dataURL = canvas.toDataURL();
-                    localStorage.setItem('image', dataURL);
-                    this.previewSrc = dataURL;
-                }
-                img.src = e.target.result;
-            }
-
-            if (file) {
-                reader.readAsDataURL(file);
-            } else {
-                this.previewSrc = null;
-            }
+        alerta(event) {
+            Swal.fire({
+                title: "You want to add this product?",
+                showDenyButton: true,
+                confirmButtonText: 'Yes',
+                denyButtonText: `No`,
+            })
         }
     }
 }
-</script> -->
+
+</script> 
 
 <style scoped>
 #buttonCreate {
