@@ -53,8 +53,8 @@ li {
 
 .row {
     background-color: #7749F8;
-    width: 1440px;
-    height: 60px
+    width: auto;
+    height: 60px;
 }
 
 h1 {
